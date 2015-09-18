@@ -11,6 +11,7 @@ body {
   margin-bottom: 200px; }
 
 a {
+  color: inherit;
   text-decoration: none; }
 
 .wrap {
@@ -25,12 +26,13 @@ a {
     text-align: center;
     font-weight: normal;
     font-size: 26px; }
+    .header h1:hover {
+      color: #49e; }
 
 .posts {
   margin-bottom: 100px; }
   .posts .post {
-    margin-bottom: 20px;
-    min-height: 80px; }
+    margin-bottom: 30px; }
     .posts .post .votes {
       width: 50px;
       height: 50px;
@@ -54,16 +56,23 @@ a {
           content: "∧"; }
     .posts .post .content {
       padding-left: 70px; }
-      .posts .post .content h3 .title {
-        font-size: 20px;
-        line-height: 1.5;
-        font-weight: normal; }
-        .posts .post .content h3 .title.hasUrl {
-          color: #49e; }
-        .posts .post .content h3 .title:hover {
-          text-decoration: underline; }
+      .posts .post .content h3 {
+        margin-bottom: 10px; }
+        .posts .post .content h3 .title {
+          font-size: 20px;
+          font-weight: normal; }
+          .posts .post .content h3 .title.hasUrl {
+            color: #49e; }
+          .posts .post .content h3 .title:hover {
+            text-decoration: underline; }
       .posts .post .content .description {
-        font-size: 14px; }
+        font-size: 14px;
+        margin-bottom: 10px; }
+      .posts .post .content .comments a {
+        font-size: 14px;
+        color: #999; }
+        .posts .post .content .comments a:hover {
+          text-decoration: underline; }
 
 .new h4 {
   font-size: 20px;

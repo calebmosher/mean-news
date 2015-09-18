@@ -1,8 +1,30 @@
-var app = angular.module("meanNews", [ ]);
+var app = angular.module("meanNews", ["ui.router"]);
 
 app
-	.controller("MainCtrl", ["$scope", function($scope) {
-		$scope.posts = [
+	.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
+		$stateProvider
+			.state("home", {
+				url: "/home",
+				templateUrl: "/home.html",
+				controller: "MainCtrl"
+			})
+			.state("post", {
+				url: "/post/{id}",
+				templateUrl: "/post.html",
+				controller: "PostCtrl"
+			});
+		$urlRouterProvider.otherwise("home");
+	}])
+	
+	.factory("posts", [function() {
+		var posts = {
+			posts: [ ]
+		};
+		return posts;
+	}])
+	
+	.controller("MainCtrl", ["$scope", "posts", function($scope, posts) {
+		$scope.posts = posts.posts = [
 			{
 				title: "Ut pretium eros nec lorem lacinia faucibus",
 				url: "http://example.com",
@@ -42,7 +64,24 @@ app
 				title: $scope.title,
 				url: $scope.url,
 				upvotes: 0,
-				description: $scope.description
+				description: $scope.description,
+				comments: [
+					{
+						author: "Louis CK",
+						body: "Curabitur rhoncus lorem eu dignissim condimentum. Mauris laoreet, metus id sodales ornare, justo magna laoreet erat, sed posuere massa tellus sed lectus.",
+						upvotes: 0
+					},
+					{
+						author: "Bo Burnham",
+						body: "Suspendisse vulputate sem et mauris convallis consequat. Donec posuere sit amet velit sed sollicitudin.",
+						upvotes: 0
+					},
+					{
+						author: "Bill Burr",
+						body: "Phasellus vitae velit facilisis, vehicula diam id, blandit est. Integer sed mauris enim. Curabitur fermentum eros et leo dictum, eu fermentum velit vulputate. Sed pellentesque urna nec posuere aliquam. Praesent semper fringilla enim ac sagittis.",
+						upvotes: 0
+					}
+				]
 			});
 			$scope.title = $scope.url = $scope.description = "";
 		};
@@ -59,4 +98,8 @@ app
 			post.upvotes++;
 			target.classList.add("voted");
 		};
+	}])
+	
+	.controller("PostCtrl", ["$scope", "$stateParams", "posts", function($scope, $stateParams, posts) {
+		$scope.post = posts.posts[$stateParams.id];
 	}]);
