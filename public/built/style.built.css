@@ -1,0 +1,97 @@
+@charset "UTF-8";
+* {
+  font-family: Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none; }
+
+body {
+  margin-bottom: 200px; }
+
+a {
+  text-decoration: none; }
+
+.wrap {
+  width: 600px;
+  max-width: 96%;
+  margin-right: auto;
+  margin-left: auto; }
+
+.header {
+  margin: 60px 0; }
+  .header h1 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 26px; }
+
+.posts {
+  margin-bottom: 100px; }
+  .posts .post {
+    margin-bottom: 20px;
+    min-height: 80px; }
+    .posts .post .votes {
+      width: 50px;
+      height: 50px;
+      line-height: 46px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      float: left;
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer; }
+      .posts .post .votes:hover {
+        border-color: #49e; }
+      .posts .post .votes.voted {
+        border-color: #49e;
+        color: #49e; }
+        .posts .post .votes.voted .upvote:before {
+          content: "+"; }
+      .posts .post .votes .upvote {
+        font-size: 18px; }
+        .posts .post .votes .upvote:before {
+          content: "∧"; }
+    .posts .post .content {
+      padding-left: 70px; }
+      .posts .post .content h3 .title {
+        font-size: 20px;
+        line-height: 1.5;
+        font-weight: normal; }
+        .posts .post .content h3 .title.hasUrl {
+          color: #49e; }
+        .posts .post .content h3 .title:hover {
+          text-decoration: underline; }
+      .posts .post .content .description {
+        font-size: 14px; }
+
+.new h4 {
+  font-size: 20px;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 20px; }
+
+.new form > * {
+  width: 100%;
+  border-radius: 4px; }
+
+.new form label {
+  font-size: 14px;
+  cursor: pointer; }
+
+.new form input[type=text],
+.new form textarea {
+  border: 1px solid #ccc;
+  margin: 0 0 15px;
+  padding: 5px;
+  font-size: 16px; }
+
+.new form input[type=submit] {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  background: #ccc; }
+  .new form input[type=submit]:hover {
+    background: #49e; }

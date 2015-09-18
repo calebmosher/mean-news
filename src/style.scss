@@ -1,0 +1,147 @@
+// General
+* {
+	font-family: Helvetica, Arial, sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+body {
+	margin-bottom: 200px;
+}
+a {
+	text-decoration: none;
+}
+.wrap {
+	width: 600px;
+	max-width: 96%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+// Colors
+$color-blue: #49e;
+$color-green: #196;
+$color-border-gray: #ccc;
+
+
+
+// Header
+.header {
+	margin: 60px 0;
+	
+	h1 {
+		text-align: center;
+		font-weight: normal;
+		font-size: 26px;
+	}
+}
+
+
+
+// Post
+.posts {
+	margin-bottom: 100px;
+	
+	.post {
+		$vote-box-size: 50px;
+		$vote-border-size: 1px;
+		margin-bottom: 20px;
+		min-height: 80px;
+		
+		.votes {
+			width: $vote-box-size;
+			height: $vote-box-size;
+			line-height: $vote-box-size - (4 * $vote-border-size);
+			border: $vote-border-size solid $color-border-gray;
+			border-radius: 50%;
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			cursor: pointer;
+			
+			&:hover {
+				border-color: $color-blue;
+			}
+			&.voted {
+				border-color: $color-blue;
+				color: $color-blue;
+				
+				.upvote:before {
+					content: "+";
+				}
+			}
+			.upvote {
+				font-size: 18px;
+				
+				&:before {
+					content: "∧";
+				}
+			}
+		}
+		.content {
+			padding-left: $vote-box-size + 20px;
+			
+			h3 {
+				.title {
+					font-size: 20px;
+					line-height: 1.5;
+					font-weight: normal;
+					
+					&.hasUrl {
+						color: $color-blue;
+					}
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+			.description {
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+
+
+// New Post
+.new {
+	h4 {
+		font-size: 20px;
+		font-weight: normal;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	form {
+		& > * {
+			width: 100%;
+			border-radius: 4px;
+		}
+		label {
+			font-size: 14px;
+			cursor: pointer;
+		}
+		input[type=text],
+		textarea {
+			border: 1px solid $color-border-gray;
+			margin: 0 0 15px;
+			padding: 5px;
+			font-size: 16px;
+		}
+		input[type=submit] {
+			padding: 10px 0;
+			text-align: center;
+			font-size: 16px;
+			color: #fff;
+			cursor: pointer;
+			background: $color-border-gray;
+			
+			&:hover {
+				background: $color-blue;
+			}
+		}
+	}
+}
