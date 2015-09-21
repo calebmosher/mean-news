@@ -53,7 +53,24 @@ app
 				title: "Donec laoreet dui nec malesuada condimentum",
 				url: "http://example.com",
 				upvotes: 4,
-				description: "Curabitur rhoncus lorem eu dignissim condimentum. Mauris laoreet, metus id sodales ornare, justo magna laoreet erat, sed posuere massa tellus sed lectus."
+				description: "Curabitur rhoncus lorem eu dignissim condimentum. Mauris laoreet, metus id sodales ornare, justo magna laoreet erat, sed posuere massa tellus sed lectus.",
+				comments: [
+					{
+						author: "Louis CK",
+						body: "Curabitur rhoncus lorem eu dignissim condimentum. Mauris laoreet, metus id sodales ornare, justo magna laoreet erat, sed posuere massa tellus sed lectus.",
+						upvotes: 0
+					},
+					{
+						author: "Bo Burnham",
+						body: "Suspendisse vulputate sem et mauris convallis consequat. Donec posuere sit amet velit sed sollicitudin.",
+						upvotes: 0
+					},
+					{
+						author: "Bill Burr",
+						body: "Phasellus vitae velit facilisis, vehicula diam id, blandit est. Integer sed mauris enim. Curabitur fermentum eros et leo dictum, eu fermentum velit vulputate. Sed pellentesque urna nec posuere aliquam. Praesent semper fringilla enim ac sagittis.",
+						upvotes: 0
+					}
+				]
 			},
 		];
 		
@@ -102,4 +119,17 @@ app
 	
 	.controller("PostCtrl", ["$scope", "$stateParams", "posts", function($scope, $stateParams, posts) {
 		$scope.post = posts.posts[$stateParams.id];
+		
+		$scope.upvote = function(comment, $event) {
+			var target = $event.target;
+			
+			if (target.classList.contains("voted")) {
+				comment.upvotes--;
+				target.classList.remove("voted");
+				return;
+			}
+			
+			comment.upvotes++;
+			target.classList.add("voted");
+		};
 	}]);

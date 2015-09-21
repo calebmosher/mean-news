@@ -68,20 +68,18 @@
 						<span ng-hide="post.url"class="title">{{post.title}}</span>
 					</h3>
 					<p class="description">{{post.description}}</p>
-					<p class="comments"><a href="#/post/{{$index}}">See all comments ({{post.comments.length || 0}})</a>
 				</div>
 			</div>
 		</div>
 		
 		<div class="comments wrap">
 			<div class="comment" ng-repeat="comment in post.comments | orderBy: '-upvotes'">
-				<div class="votes" ng-click="upvote(comment, $event)">
-					<span class="upvote"></span>
+				<div class="upvote" ng-click="upvote(comment, $event)"></div>
+				<div class="meta">
 					<span class="count">{{comment.upvotes}}</span>
+					<span class="author">{{comment.author}}</span>
 				</div>
-				
 				<div class="content">
-					<p class="author">{{comment.author}}</p>
 					<p class="body">{{comment.body}}</p>
 				</div>
 			</div>

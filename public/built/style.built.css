@@ -104,3 +104,41 @@ a {
   background: #ccc; }
   .new form input[type=submit]:hover {
     background: #49e; }
+
+.comment {
+  font-size: 14px;
+  margin-bottom: 30px; }
+  .comment .upvote {
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    line-height: 16px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50%;
+    color: #ccc;
+    cursor: pointer; }
+    .comment .upvote:hover {
+      border-color: #49e;
+      color: #49e; }
+    .comment .upvote:before {
+      content: "∧"; }
+    .comment .upvote.voted {
+      border-color: #49e;
+      color: #49e; }
+      .comment .upvote.voted:before {
+        content: "+"; }
+      .comment .upvote.voted ~ .meta .count {
+        color: #49e; }
+  .comment .meta {
+    line-height: 20px;
+    min-height: 20px;
+    padding-left: 25px;
+    margin-bottom: 5px; }
+    .comment .meta .count {
+      color: #ccc;
+      margin-right: 10px; }
+    .comment .meta .author {
+      font-weight: bold; }

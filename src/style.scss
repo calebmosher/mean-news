@@ -25,7 +25,7 @@ a {
 // Colors
 $color-blue: #49e;
 $color-green: #196;
-$color-border-gray: #ccc;
+$color-gray: #ccc;
 
 
 
@@ -59,7 +59,7 @@ $color-border-gray: #ccc;
 			width: $vote-box-size;
 			height: $vote-box-size;
 			line-height: $vote-box-size - (4 * $vote-border-size);
-			border: $vote-border-size solid $color-border-gray;
+			border: $vote-border-size solid $color-gray;
 			border-radius: 50%;
 			float: left;
 			text-align: center;
@@ -140,7 +140,7 @@ $color-border-gray: #ccc;
 		}
 		input[type=text],
 		textarea {
-			border: 1px solid $color-border-gray;
+			border: 1px solid $color-gray;
 			margin: 0 0 15px;
 			padding: 5px;
 			font-size: 16px;
@@ -151,11 +151,68 @@ $color-border-gray: #ccc;
 			font-size: 16px;
 			color: #fff;
 			cursor: pointer;
-			background: $color-border-gray;
+			background: $color-gray;
 			
 			&:hover {
 				background: $color-blue;
 			}
+		}
+	}
+}
+
+
+
+// Comment
+.comment {
+	$vote-box-size: 20px;
+	$vote-border-size: 1px;
+	font-size: 14px;
+	margin-bottom: 30px;
+	
+	.upvote {
+		display: block;
+		float: left;
+		width: $vote-box-size;
+		height: $vote-box-size;
+		line-height: $vote-box-size - 4 * $vote-border-size;
+		border: $vote-border-size solid $color-gray;
+		font-size: 16px;
+		text-align: center;
+		border-radius: 50%;
+		color: $color-gray;
+		cursor: pointer;
+		
+		&:hover {
+			border-color: $color-blue;
+			color: $color-blue;
+		}
+		&:before {
+			content: "∧";
+		}
+		&.voted {
+			border-color: $color-blue;
+			color: $color-blue;
+			
+			&:before {
+				content: "+";
+			}
+			& ~ .meta .count {
+				color: $color-blue;
+			}
+		}
+	}
+	.meta {
+		line-height: $vote-box-size;
+		min-height: $vote-box-size;
+		padding-left: $vote-box-size + 5px;
+		margin-bottom: 5px;
+		
+		.count {
+			color: $color-gray;
+			margin-right: 10px;
+		}
+		.author {
+			font-weight: bold;
 		}
 	}
 }
