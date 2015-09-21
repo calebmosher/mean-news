@@ -57,7 +57,7 @@
 	<script type="text/ng-template" id="/post.html">
 		<div class="posts wrap">
 			<div class="post">
-				<div class="votes" ng-click="upvote(post, $event)">
+				<div class="votes" ng-click="upvotePost(post, $event)">
 					<span class="upvote"></span>
 					<span class="count">{{post.upvotes}}</span>
 				</div>
@@ -74,7 +74,7 @@
 		
 		<div class="comments wrap">
 			<div class="comment" ng-repeat="comment in post.comments | orderBy: '-upvotes'">
-				<div class="upvote" ng-click="upvote(comment, $event)"></div>
+				<div class="upvote" ng-click="upvoteComment(comment, $event)"></div>
 				<div class="meta">
 					<span class="count">{{comment.upvotes}}</span>
 					<span class="author">{{comment.author}}</span>
@@ -82,6 +82,19 @@
 				<div class="content">
 					<p class="body">{{comment.body}}</p>
 				</div>
+			</div>
+			
+			<div class="newComment">
+				<h4>Add Comment</h4>
+				<form ng-submit="addComment()">
+					<label for="newName">Name:</label>
+					<input id="newName" ng-model="name" type="text" />
+					
+					<label for="newBody">Comment:</label>
+					<textarea id="newBody" ng-model="body" rows="4"></textarea>
+					
+					<input type="submit" value="Comment" />
+				</form>
 			</div>
 		</div>
 	</script>

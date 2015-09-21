@@ -63,8 +63,8 @@ a {
           font-weight: normal; }
           .posts .post .content h3 .title.hasUrl {
             color: #49e; }
-          .posts .post .content h3 .title:hover {
-            text-decoration: underline; }
+            .posts .post .content h3 .title.hasUrl:hover {
+              text-decoration: underline; }
       .posts .post .content .description {
         font-size: 14px;
         margin-bottom: 10px; }
@@ -82,6 +82,7 @@ a {
 
 .new form > * {
   width: 100%;
+  max-width: 100%;
   border-radius: 4px; }
 
 .new form label {
@@ -105,10 +106,10 @@ a {
   .new form input[type=submit]:hover {
     background: #49e; }
 
-.comment {
+.comments .comment {
   font-size: 14px;
   margin-bottom: 30px; }
-  .comment .upvote {
+  .comments .comment .upvote {
     display: block;
     float: left;
     width: 20px;
@@ -120,25 +121,54 @@ a {
     border-radius: 50%;
     color: #ccc;
     cursor: pointer; }
-    .comment .upvote:hover {
+    .comments .comment .upvote:hover {
       border-color: #49e;
       color: #49e; }
-    .comment .upvote:before {
+    .comments .comment .upvote:before {
       content: "∧"; }
-    .comment .upvote.voted {
+    .comments .comment .upvote.voted {
       border-color: #49e;
       color: #49e; }
-      .comment .upvote.voted:before {
+      .comments .comment .upvote.voted:before {
         content: "+"; }
-      .comment .upvote.voted ~ .meta .count {
+      .comments .comment .upvote.voted ~ .meta .count {
         color: #49e; }
-  .comment .meta {
+  .comments .comment .meta {
     line-height: 20px;
     min-height: 20px;
     padding-left: 25px;
     margin-bottom: 5px; }
-    .comment .meta .count {
+    .comments .comment .meta .count {
       color: #ccc;
       margin-right: 10px; }
-    .comment .meta .author {
+    .comments .comment .meta .author {
       font-weight: bold; }
+
+.comments .newComment {
+  margin-top: 100px; }
+  .comments .newComment h4 {
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center; }
+  .comments .newComment form > * {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 4px; }
+  .comments .newComment form label {
+    font-size: 12px;
+    cursor: pointer; }
+  .comments .newComment form input[type=text],
+  .comments .newComment form textarea {
+    border: 1px solid #ccc;
+    margin: 0 0 15px;
+    padding: 5px;
+    font-size: 14px; }
+  .comments .newComment form input[type=submit] {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    background: #ccc; }
+    .comments .newComment form input[type=submit]:hover {
+      background: #49e; }
