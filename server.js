@@ -1,7 +1,12 @@
 "use strict";
 
 var express = require("express"),
-	app = express();
+	app = express(),
+	mongoose = require("mongoose");
+
+require("./models/Post");
+require("./models/Comment");
+mongoose.connect("mongodb://localhost/news");
 
 app
 	.use(express.static("public"))
